@@ -10,12 +10,13 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: ENV['DBusername']
-  password: ENV['DBpassword']
-  socket: /var/run/mysqld/mysqld.sock
+    adapter: mysql2
+    encoding: utf8
+    pool: 5
+    username: <%= ENV['DBusername'] %>
+    password: <%= ENV['DBpassword'] %>
+
+    socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
