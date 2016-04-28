@@ -1,7 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
-#Environment Variables Gem
-require 'dotenv' ; Dotenv.load ".env.local", ".env.#{Rails.env}"
+
 
 require 'rails/all'
 
@@ -9,6 +8,9 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+#Environment Variables Gem
+require 'dotenv' ; Dotenv.load ".env.local", ".env.#{Rails.env}"
 
 module Website2016
   class Application < Rails::Application
