@@ -149,6 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bootstrap-sass (~> 3.3.6)
   byebug
   dotenv (~> 2.1)

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'teams/index'
+
+  get 'teams/allteams'
+
+  get 'teams/userteam'
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

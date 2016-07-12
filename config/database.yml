@@ -13,14 +13,14 @@ default: &default
     adapter: mysql2
     encoding: utf8
     pool: 5
-    username: <%= ENV['DBusername'] %>
-    password: <%= ENV['DBpassword'] %>
+    username: root
+    password: broomball
 
     socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: website2016_development
+  #database: website2016_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
