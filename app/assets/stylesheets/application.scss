@@ -16,13 +16,16 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "colors";
-@import "navigation";
-@import "footer";
-@import "carousel";
+@import "shared/colors";
+@import "shared/navigation";
+@import "shared/footer";
+@import "components/carousel";
 @import "home";
 
 body{
-  background-color: gold;
+  background-color: $black;
   margin-bottom: 60px;
+  color: $gold;
 }
+
+

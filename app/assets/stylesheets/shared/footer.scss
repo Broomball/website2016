@@ -1,6 +1,7 @@
 .footer-text{
-  text-size: 24 px;
-  color: white;
+  text-size: 35 px;
+  color: $black;
+  padding-top: 10px;
 }
 
 .footer-icons{
@@ -14,6 +15,11 @@
   bottom: 0;
   left:0;
   width: 100%;
-  height: 60px;
-  background-color: black;
+  height: 50px;
+  background-color: $gold;
+}
+
+.logo{
+  padding: 2px;
+  
 }
