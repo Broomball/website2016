@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  
+  get 'players/listPlayers'
+
+  get 'players/profile'
+
+  get 'players/stats'
+
+  get 'players/schedule'
+
+  root 'home#index'
+  
   get 'teams/index'
 
   get 'teams/allteams'

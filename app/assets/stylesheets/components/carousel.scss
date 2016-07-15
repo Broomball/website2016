@@ -13,6 +13,7 @@
 
 .carousel{
   background: none;
+  border: 2px solid $gold
 }
 
 .carousel-control.right, .carousel-control.left {
@@ -21,7 +22,7 @@
 }
 
 .carousel-indicators li {
-    border-color: $gold;
+    border-color: $black;
 }
 
 .carousel-indicators li.active {

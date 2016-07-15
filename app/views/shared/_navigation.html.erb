@@ -5,18 +5,24 @@
       <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Broomball</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
+    	<!--Dropdown for Currently Logged in User-->
     	<li class="dropdown">
-        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">My Broomball
+        	<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="#">My Broomball
         	<span class="caret"></span></a>
+        	<a class="dropdown-toggle visible-sm" data-toggle="dropdown" href="#">
+        	<span data-toggle="tooltip" title="My Broomball" data-placement="auto bottom" class="glyphicon glyphicon-user visible-sm"></span></a>
         	<ul class="dropdown-menu">
         		<li><a href="#">My Profile</a></li>
         		<li><a href="#">My Stats</a></li>
         		<li><a href="#">My Schedule</a></li> 
         	</ul>
       	</li>
+      	<!--Dropdown for teams-->
     	<li class="dropdown">
-      		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Teams
-      		<span class="caret"></span></a>
+      		<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="#">Teams
+        	<span class="caret"></span></a>
+        	<a class="dropdown-toggle visible-sm" data-toggle="dropdown" href="#">
+        	<span data-toggle="tooltip" title="Teams" data-placement="auto bottom" class="glyphicon glyphicon-list visible-sm"></span></a>
       		<ul class="dropdown-menu">
       			<li><a href="#">All Teams</a></li>
       			<li class="divider"></li>
@@ -24,14 +30,30 @@
         		<li><a href="#">Team 2</a></li>
         	</ul>
 		</li>
-      	<li><a href="#">Schedule</a></li>
+		<!--Link to Schedule (list view)-->
+      	<li><a href="#"><div class="hidden-sm">Schedule</div><span data-toggle="tooltip" title="Schedule" data-placement="auto bottom" class="glyphicon glyphicon-calendar visible-sm"></span></a></li>
+      	<!--Search bar form-->
       	<form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search for player/team">
-        </div>
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-      </form>
-      	<li><a href="#">Signed in as <u>bbwebdev</u></a></li>
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search for player/team">
+	        </div>
+	        <!--Search button-->
+	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      	</form>
+      	<!--Dropdown for more links-->
+      	<li class="dropdown">
+      		<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="#">More
+        	<span class="caret"></span></a>
+        	<a class="dropdown-toggle visible-sm" data-toggle="dropdown" href="#">
+        	<span data-toggle="tooltip" title="More" data-placement="auto bottom" class="glyphicon glyphicon-menu-down visible-sm"></span></a>
+      		<ul class="dropdown-menu">
+      			<li><a href="#">About</a></li>
+      			<li><a href="#">Contact</a></li>
+      			<li><a href="#">Admin Tools</a></li>
+        	</ul>
+		</li>
+		<!--TODO If signed in, show username, otherwise show "Sign In"-->
+      	<li><a href="#"><u>bbwebdev</u></a></li>
     </ul>
   </div>
 </nav>

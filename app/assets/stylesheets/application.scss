@@ -23,9 +23,12 @@
 @import "home";
 
 body{
-  background-color: $black;
+  background: url(/assets/backgrounds/DarkBG.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin-bottom: 60px;
+  padding-top: 100px;
   color: $gold;
 }
-
-
