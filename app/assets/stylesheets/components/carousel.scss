@@ -16,6 +16,10 @@
   border: 2px solid $gold
 }
 
+.carousel:hover{
+  box-shadow: 5px 0px 40px rgba(0,0,0, 1);
+}
+
 .carousel-control.right, .carousel-control.left {
     background-image: none;
     color: $gold;
@@ -30,14 +34,13 @@
 }
 
 .item h3 {
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.375em;
     font-weight: 400;
-    color: $gold;
+    color: white;
 }
 
 .item p {
-    font-style: normal;
-    color: $gold;
+    color: white;
 }
 

@@ -21,6 +21,7 @@
 @import "shared/footer";
 @import "components/carousel";
 @import "home";
+@import "teams";
 
 body{
   background: url(/assets/backgrounds/DarkBG.jpg) no-repeat center center fixed; 
@@ -30,5 +31,6 @@ body{
   background-size: cover;
   margin-bottom: 60px;
   padding-top: 100px;
-  color: $gold;
+  color: $black;
+  font-family: Montserrat, sans-serif;
 }

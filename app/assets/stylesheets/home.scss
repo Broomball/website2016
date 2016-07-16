@@ -5,12 +5,30 @@
 .thumbnail {
     margin-right: 2px;
     margin-left: 2px;
-    border: 2px solid $gold;
-    background-color: transparent;
+    border: 2px solid $black;
+    background-color: $gold;
+    border-radius: 10px;
 }
 
 .thumbnail img {
     width: 100%;
     height: 100%;
+    border: 1px solid $black;
     margin-bottom: 10px;
+    border-radius: 0px;
 }
+
+.thumbnail:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, 1);
+}
+
+.table-title{
+  color: $gold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+h2 span {
+  background-color: $black; 
+}
+

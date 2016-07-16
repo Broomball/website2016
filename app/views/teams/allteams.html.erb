@@ -1,41 +1,29 @@
 <!-- This view is used to display a list of teams-->
 
-<div class="container-fluid">
-	<table class="table">
-		<caption class="text-center">Teams 2017 Season</caption>
-		<tr>
-			<th>Team Name</th>
-			<th>League</th>
-			<th>Conference Rank</th>
-			<th>Wins</th>
-			<th>Losses</th>
-			<th>Ties</th>
-		</tr>
-	
-		<tr>
-			<td>Sheep Sheerers</td>
-			<td>Off-Campus</td>
-			<td>1</td>
-			<td>9</td>
-			<td>0</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Hash Slinging Slashers</td>
-			<td>West Wads</td>
-			<td>6</td>
-			<td>5</td>
-			<td>4</td>
-			<td>0</td>
-		</tr>
-		<tr>
-			<td>Test Team</td>
-			<td>Women's</td>
-			<td>3</td>
-			<td>7</td>
-			<td>1</td>
-			<td>1</td>
-		</tr>
-		
+<div class="container-fluid table-responsive">
+	<h2 class="table-title"><span>Teams for 2017 Season</span></h2>
+	<table class="table table-hover active">
+		<thead>
+    		<tr>
+		      <th>Team Name</th>
+		      <th>League</th>
+		      <th>Conference Rank</th>
+		      <th>Wins</th>
+		      <th>Losses</th>
+		      <th>Ties</th>
+    		</tr>
+  		</thead>
+  		<tbody>	
+  			<%10.times do%>	
+			<tr>
+				<td>Sheep Sheerers</td>
+				<td>Off-Campus</td>
+				<td>1</td>
+				<td>9</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+			<%end%>
+		</tbody>
 	</table>
 </div>

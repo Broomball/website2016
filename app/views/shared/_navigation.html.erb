@@ -1,8 +1,12 @@
+<!--link_to Reference: http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to-->
+
 <!--Partial used for Navigation bar-->
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Broomball</a>
+      <%=link_to "/", class:"navbar-brand" do%>
+     	<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Broomball
+	  <% end %>
     </div>
     <ul class="nav navbar-nav navbar-right">
     	<!--Dropdown for Currently Logged in User-->
@@ -19,12 +23,12 @@
       	</li>
       	<!--Dropdown for teams-->
     	<li class="dropdown">
-      		<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="#">Teams
+      		<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="">Teams
         	<span class="caret"></span></a>
         	<a class="dropdown-toggle visible-sm" data-toggle="dropdown" href="#">
         	<span data-toggle="tooltip" title="Teams" data-placement="auto bottom" class="glyphicon glyphicon-list visible-sm"></span></a>
       		<ul class="dropdown-menu">
-      			<li><a href="#">All Teams</a></li>
+      			<li><%=link_to "All Teams", controller: "teams", action: "allteams"%></li>
       			<li class="divider"></li>
       			<li><a href="#">Team 1</a></li>
         		<li><a href="#">Team 2</a></li>

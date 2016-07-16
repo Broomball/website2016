@@ -5,8 +5,11 @@
 //General background and border color
 .navbar-default {
     background-color: $gold;
-    border-color: $black;
-    border-radius: 10px;
+    border-bottom: 2px solid $black;
+    border-left: 2px solid $black;
+    border-right: 2px solid $black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 //Colors for title/brand
