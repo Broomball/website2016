@@ -33,14 +33,15 @@
     background-color: $gold;
 }
 
+.item p{
+    text-shadow: 1px 1px 0px #000;
+    color: $gold;
+}
+
 .item h3 {
     font-size: 20px;
     line-height: 1.375em;
     font-weight: 400;
-    color: white;
+    text-shadow: 1px 1px 0px #000;
+    color: $gold;
 }
-
-.item p {
-    color: white;
-}
-

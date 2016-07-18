@@ -1,4 +1,5 @@
 <!-- This view is used to display a list of teams-->
+<%provide(:title, "Teams")%>
 
 <div class="container-fluid table-responsive">
 	<h2 class="table-title"><span>Teams for 2017 Season</span></h2>
@@ -7,6 +8,7 @@
     		<tr>
 		      <th>Team Name</th>
 		      <th>League</th>
+		      <th>Conference</th>
 		      <th>Conference Rank</th>
 		      <th>Wins</th>
 		      <th>Losses</th>
@@ -16,9 +18,10 @@
   		<tbody>	
   			<%10.times do%>	
 			<tr>
-				<td>Sheep Sheerers</td>
+				<td><a href="#">Hash Slinging Slashers</a></td>
 				<td>Off-Campus</td>
 				<td>1</td>
+				<td>2</td>
 				<td>9</td>
 				<td>0</td>
 				<td>0</td>

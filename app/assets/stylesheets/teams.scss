@@ -2,25 +2,4 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.table{
-  background-color: $gold;
-  border-radius: 15px;
-  border: 2px solid $black;
-  border-collapse:separate;
-}
 
-//Header row
-th{
-  text-align: center;
-}
-
-//Data rows
-td{
-  border-bottom: 1px solid $black;
-  border-top: 1px solid $black;
-  text-align: center;
-}
-
-.table > thead > tr > th{
-  border-bottom: 3px solid $black;
-}

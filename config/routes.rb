@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'teams/index'
 
   get 'teams/allteams'
+  
+  get 'teams/teampage'
 
   get 'home/index'
 

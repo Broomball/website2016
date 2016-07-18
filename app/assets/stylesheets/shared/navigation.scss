@@ -25,6 +25,11 @@
 .navbar-default .navbar-nav > li > a {
     color: $black;
 }
+//Username
+.navbar-default .navbar-nav > li > a.user{
+  text-decoration: underline;
+}
+
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: white;
