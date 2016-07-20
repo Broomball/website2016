@@ -67,3 +67,9 @@
 .navbar-default .navbar-nav > .open > a:focus .caret {
     border-top-color:white;
 }
+
+//Login Button
+#btnLogin{
+  background-color: $gray;
+  color: $gold;
+}

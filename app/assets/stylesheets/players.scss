@@ -29,10 +29,12 @@
 .pic-btn{
   display:none;
   position: absolute;
-  top: 46%;
-  left: 36.5%;
   background-color: $gray;
   color: $gold;
+  margin-left: -35px;
+  margin-top: -11px;
+  left: 50%;
+  top: 50%;
 }
 
 //Player-specific panel (that is why these are not in the panel.scss file)

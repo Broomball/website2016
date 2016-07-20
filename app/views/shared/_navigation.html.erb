@@ -57,7 +57,22 @@
         	</ul>
 		</li>
 		<!--TODO If signed in, show username, otherwise show "Sign In"-->
-      	<li><%=link_to "Nick Fisher", controller: "players", action: "profile", class: "user"%></li>
+	    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign in <span class="glyphicon glyphicon-log-in"></span></a>
+	      	<div class="dropdown-menu">
+		      	<form id="formLogin" class="form container-fluid">
+		          <div class="form-group">
+		            <label for="usr">Name:</label>
+		            <input type="text" class="form-control" id="usr">
+		          </div>
+		          <div class="form-group">
+		            <label for="pwd">Password:</label>
+		            <input type="password" class="form-control" id="pwd">
+		          </div>
+		          <button type="button" id="btnLogin" class="btn btn-block">Login</button>
+		        </form>
+	        </div>
+	    </li>
+      	<!--<li><%=link_to "Nick Fisher", controller: "players", action: "profile", class: "user"%></li>-->
     </ul>
   </div>
 </nav>
