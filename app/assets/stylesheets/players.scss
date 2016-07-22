@@ -31,6 +31,7 @@
   position: absolute;
   background-color: $gray;
   color: $gold;
+  border: 1px solid $black;
   margin-left: -35px;
   margin-top: -11px;
   left: 50%;
@@ -42,6 +43,7 @@
   float: right;
   background-color: $gray;
   color: $gold;
+  border: 1px solid $gold;
 }
 
 .edit-btn:hover{

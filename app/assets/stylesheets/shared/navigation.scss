@@ -72,4 +72,9 @@
 #btnLogin{
   background-color: $gray;
   color: $gold;
+  border: 2px solid $black;
+}
+
+#btnLogin:hover{
+  color: white;
 }
