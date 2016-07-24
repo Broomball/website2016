@@ -13,8 +13,8 @@ default: &default
     adapter: mysql2
     encoding: utf8
     pool: 5
-    username: <%= ENV['DBusername'] %>
-    password: <%= ENV['DBpassword'] %>
+    username: root
+    password: broomball
 
     socket: /var/run/mysqld/mysqld.sock
 

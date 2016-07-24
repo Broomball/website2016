@@ -1,0 +1,30 @@
+.table{
+  background-color: $gold;
+  //border-radius: 15px;
+  border: 3px solid $black;
+ 
+}
+
+//Header row
+th{
+  text-align: center;
+}
+
+//Data rows
+td{
+  border-bottom: 1px solid $black;
+  text-align: center;
+  
+}
+
+td > a {
+  color: $black;
+}
+
+.table > thead > tr > th{
+  border-bottom: 3px solid $black;
+}
+
+.table > tbody > tr > td{
+  border-top: 1px solid $black;
+}

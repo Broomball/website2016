@@ -1,0 +1,36 @@
+<!--This is the main home page-->
+
+<%= render 'components/carousel'%>
+<%provide(:title, "Home")%>
+<!--News Blocks TODO: Limit number of characters for p's and add "..." to end-->
+<div class="container-fluid text-center bg-grey">
+	<br>
+	<br>
+	<div class="row text-center">
+		<div class="col-sm-4">
+			<div class="thumbnail">
+				<img src="/assets/mtulogo.png" alt="">
+				<h4><strong>Winter Carnival</strong></h4>
+				<p>This year during winter carnival Fetus took a broom to the leg.</p>
+				<button class="btn btn-default btn-sm">Read More</button>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="thumbnail">
+				<img src="/assets/mtulogo.png" alt="">
+				<h4><strong>Skills Competition</strong></h4>
+				<p>Nick is the best broomball player that ever lived. It's not even fair to other players. #Skillscomp</p>
+				<button class="btn btn-default btn-sm">Read More</button>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="thumbnail">
+				<img src="/assets/mtulogo.png" alt="">
+				<h4><strong>Registration</strong></h4>
+				<p>It's time to register your teams for the 2017 season! Click go to create a team!</p>
+				<button class="btn btn-default btn-sm">Go</button>
+			</div>
+		</div>
+	</div>
+</div>
+		

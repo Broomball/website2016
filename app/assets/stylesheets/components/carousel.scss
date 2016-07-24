@@ -1,0 +1,47 @@
+.carousel-inner img {
+  width: 100%; /* Set width to 100% */
+  margin: auto;
+  min-height:200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none;
+  }
+}
+
+.carousel{
+  background: none;
+  border: 2px solid $gold
+}
+
+.carousel:hover{
+  box-shadow: 5px 0px 40px rgba(0,0,0, 1);
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: $gold;
+}
+
+.carousel-indicators li {
+    border-color: $black;
+}
+
+.carousel-indicators li.active {
+    background-color: $gold;
+}
+
+.item p{
+    text-shadow: 1px 1px 0px #000;
+    color: $gold;
+}
+
+.item h3 {
+    font-size: 20px;
+    line-height: 1.375em;
+    font-weight: 400;
+    text-shadow: 1px 1px 0px #000;
+    color: $gold;
+}

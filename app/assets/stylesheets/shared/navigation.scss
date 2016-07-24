@@ -1,0 +1,80 @@
+// This file is used for customizing the navbar
+// If you need to customize more follow this link: http://stackoverflow.com/questions/18529274/change-navbar-color-in-twitter-bootstrap-3
+
+
+//General background and border color
+.navbar-default {
+    background-color: $gold;
+    border-bottom: 2px solid $black;
+    border-left: 2px solid $black;
+    border-right: 2px solid $black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+//Colors for title/brand
+.navbar-default .navbar-brand {
+    color: $black;
+ }
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: white;
+}
+
+//Font color for links
+.navbar-default .navbar-nav > li > a {
+    color: $black;
+}
+//Username
+.navbar-default .navbar-nav > li > a.user{
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: white;
+}
+
+//Colors when link is clicked
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    color: white;
+    background-color: $gold;
+}
+
+.navbar-nav > li > .dropdown-menu { 
+  background-color: $gold;
+  color: $black; 
+}
+
+.navbar-nav > li > .dropdown-menu > .divider{ 
+  background-color: $black;
+}
+
+//Caret (dropdown arrow) colors
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: $black;
+    border-bottom-color: $black;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: white;
+    border-bottom-color: white;
+}
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color:white;
+}
+
+//Login Button
+#btnLogin{
+  background-color: $gray;
+  color: $gold;
+  border: 2px solid $black;
+}
+
+#btnLogin:hover{
+  color: white;
+}

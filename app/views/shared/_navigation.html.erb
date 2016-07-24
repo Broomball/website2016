@@ -1,0 +1,78 @@
+<!--link_to Reference: http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html#method-i-link_to-->
+<!--TODO: Update to RESTful Routes-->
+<!--Partial used for Navigation bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%=link_to "/", class:"navbar-brand" do%>
+     	<span class="glyphicon glyphicon-home" aria-hidden="true"></span> Broomball
+	  <% end %>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+    	<!--Dropdown for Currently Logged in User-->
+    	<li class="dropdown">
+        	<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="#">My Broomball
+        	<span class="caret"></span></a>
+        	<a class="dropdown-toggle visible-sm" data-toggle="dropdown" href="#">
+        	<span data-toggle="tooltip" title="My Broomball" data-placement="auto bottom" class="glyphicon glyphicon-user visible-sm"></span></a>
+        	<ul class="dropdown-menu">
+        		<li><%=link_to "My Profile", player_path(1)%></li>
+        	</ul>
+      	</li>
+      	<!--Dropdown for teams-->
+    	<li class="dropdown">
+      		<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="">Teams
+        	<span class="caret"></span></a>
+        	<a class="dropdown-toggle visible-sm" data-toggle="dropdown" href="#">
+        	<span data-toggle="tooltip" title="Teams" data-placement="auto bottom" class="glyphicon glyphicon-list visible-sm"></span></a>
+      		<ul class="dropdown-menu">
+      			<li><%=link_to "All Teams", teams_path%></li>
+      			<li class="divider"></li>
+      			<!--TODO: Limit Teams to 40 character names-->
+      			<li><%=link_to "Sheep Sheerers Plus a bunch of characters", team_path(1)%></li>
+        		<li><a href="#">Team 2</a></li>
+        	</ul>
+		</li>
+		<!--Link to Schedule (list view)-->
+      	<li><a href="#"><div class="hidden-sm">Schedule</div><span data-toggle="tooltip" title="Schedule" data-placement="auto bottom" class="glyphicon glyphicon-calendar visible-sm"></span></a></li>
+      	<!--Search bar form-->
+      	<form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search for player/team">
+	        </div>
+	        <!--Search button-->
+	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      	</form>
+      	<!--Dropdown for more links-->
+      	<li class="dropdown">
+      		<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="#">More
+        	<span class="caret"></span></a>
+        	<a class="dropdown-toggle visible-sm" data-toggle="dropdown" href="#">
+        	<span data-toggle="tooltip" title="More" data-placement="auto bottom" class="glyphicon glyphicon-menu-down visible-sm"></span></a>
+      		<ul class="dropdown-menu">
+      			<li><a href="#">About</a></li>
+      			<li><a href="#">Contact</a></li>
+      			<!--TODO: Hide this option if not a committee member-->
+      			<li><a href="#">Committee</a></li>
+        	</ul>
+		</li>
+		<!--TODO If signed in, show username, otherwise show "Sign In"-->
+	    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign in <span class="glyphicon glyphicon-log-in"></span></a>
+	      	<div class="dropdown-menu">
+		      	<form id="formLogin" class="form container-fluid">
+		          <div class="form-group">
+		            <label for="usr">Name:</label>
+		            <input type="text" class="form-control" id="usr">
+		          </div>
+		          <div class="form-group">
+		            <label for="pwd">Password:</label>
+		            <input type="password" class="form-control" id="pwd">
+		          </div>
+		          <button type="button" id="btnLogin" class="btn btn-block">Login</button>
+		        </form>
+	        </div>
+	    </li>
+      	<!--<li><%=link_to "Nick Fisher", controller: "players", action: "index"%></li>-->
+    </ul>
+  </div>
+</nav>

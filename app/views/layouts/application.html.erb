@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Website2016</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+<!--This file is the main layout for the application -->
+<html lang="en">
+	<head>
+	  <title><%= yield(:title)%> | Broomball</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class="container custom-container">
+		<%=render 'shared/navigation'%>
+					
+		<%=yield%>
+		
+		</div>
+		<%=render 'shared/footer'%>
+	</body>
 </html>
+
+
