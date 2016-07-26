@@ -41,7 +41,7 @@
 	          <input type="text" class="form-control" placeholder="Search for player/team">
 	        </div>
 	        <!--Search button-->
-	        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+	        <button type="submit" class="btn btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
       	</form>
       	<!--Dropdown for more links-->
       	<li class="dropdown">
@@ -53,7 +53,7 @@
       			<li><a href="#">About</a></li>
       			<li><a href="#">Contact</a></li>
       			<!--TODO: Hide this option if not a committee member-->
-      			<li><a href="#">Committee</a></li>
+      			<li><%=link_to "Committee", controller: "committee_pages", action: "index"%></li>
         	</ul>
 		</li>
 		<!--TODO If signed in, show username, otherwise show "Sign In"-->

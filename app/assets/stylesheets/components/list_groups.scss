@@ -1,0 +1,59 @@
+.list-group{
+  margin-bottom: 0px;
+}
+
+.list-group > a > h4{
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: $gold;
+  border: 2px solid $black;
+  text-align: center;
+}
+
+/* line 46, /home/nick/.rvm/gems/ruby-2.3.0@website2016/gems/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_list-group.scss */
+a.list-group-item,
+button.list-group-item {
+  color: $black;
+}
+/* line 50, /home/nick/.rvm/gems/ruby-2.3.0@website2016/gems/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_list-group.scss */
+a.list-group-item .list-group-item-heading,
+button.list-group-item .list-group-item-heading {
+  color: $black;
+}
+/* line 55, /home/nick/.rvm/gems/ruby-2.3.0@website2016/gems/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_list-group.scss */
+a.list-group-item:hover, a.list-group-item:focus,
+button.list-group-item:hover,
+button.list-group-item:focus {
+  text-decoration: none;
+  color: $black;
+  background-color: #f7efc7;
+}
+
+/* line 87, /home/nick/.rvm/gems/ruby-2.3.0@website2016/gems/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_list-group.scss */
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  z-index: 2;
+  color: $black;
+  background-color: #f7efc7;
+  border: 2px solid $black;
+}
+/* line 96, /home/nick/.rvm/gems/ruby-2.3.0@website2016/gems/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_list-group.scss */
+.list-group-item.active .list-group-item-heading,
+.list-group-item.active .list-group-item-heading > small,
+.list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,
+.list-group-item.active:hover .list-group-item-heading > small,
+.list-group-item.active:hover .list-group-item-heading > .small, .list-group-item.active:focus .list-group-item-heading,
+.list-group-item.active:focus .list-group-item-heading > small,
+.list-group-item.active:focus .list-group-item-heading > .small {
+  color: inherit;
+}
+/* line 101, /home/nick/.rvm/gems/ruby-2.3.0@website2016/gems/bootstrap-sass-3.3.6/assets/stylesheets/bootstrap/_list-group.scss */
+.list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
+  color: #c7ddef;
+}

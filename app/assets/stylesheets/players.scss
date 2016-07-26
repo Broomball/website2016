@@ -1,11 +1,6 @@
 // Place all the styles related to the players controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.profile-pic{
-  
-}
-
 .profile-pic > img{
   min-width: 100%;
   min-height: 100%;
@@ -29,9 +24,6 @@
 .pic-btn{
   display:none;
   position: absolute;
-  background-color: $gray;
-  color: $gold;
-  border: 1px solid $black;
   margin-left: -35px;
   margin-top: -11px;
   left: 50%;
@@ -41,13 +33,7 @@
 //Player-specific panel (that is why these are not in the panel.scss file)
 .edit-btn{
   float: right;
-  background-color: $gray;
-  color: $gold;
   border: 1px solid $gold;
-}
-
-.edit-btn:hover{
-  color:white;
 }
 
 .col-xs-6 > span{
@@ -57,4 +43,8 @@
 .col-xs-6 > h5{
   text-align: center;
   font-weight: bold;
+}
+
+.desc{
+  word-wrap: break-word;
 }

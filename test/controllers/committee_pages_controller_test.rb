@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CommitteeTest < ActiveSupport::TestCase
+class CommitteePagesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

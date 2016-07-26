@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'committee_pages/index'
+
   get 'players/listPlayers'
 
   get 'players/profile'
