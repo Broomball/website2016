@@ -3,6 +3,7 @@
 
 
 //General background and border color
+
 .navbar-default {
     background-color: $gold;
     border-bottom: 2px solid $black;
@@ -10,6 +11,8 @@
     border-right: 2px solid $black;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 //Colors for title/brand
@@ -36,19 +39,19 @@
 }
 
 //Colors when link is clicked
-.navbar-default .navbar-nav > .open > a, 
-.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
     color: white;
     background-color: $gold;
 }
 
-.navbar-nav > li > .dropdown-menu { 
+.navbar-nav > li > .dropdown-menu {
   background-color: $gold;
-  color: $black; 
+  color: $black;
 }
 
-.navbar-nav > li > .dropdown-menu > .divider{ 
+.navbar-nav > li > .dropdown-menu > .divider{
   background-color: $black;
 }
 
@@ -62,8 +65,8 @@
     border-top-color: white;
     border-bottom-color: white;
 }
-.navbar-default .navbar-nav > .open > a .caret, 
-.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
 .navbar-default .navbar-nav > .open > a:focus .caret {
     border-top-color:white;
 }
