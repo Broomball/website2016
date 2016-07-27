@@ -48,7 +48,7 @@
   color: $black; 
 }
 
-.navbar-nav > li > .dropdown-menu > .divider{ 
+.navbar-nav > li > .dropdown-menu > .divider{
   background-color: $black;
 }
 
@@ -62,6 +62,7 @@
     border-top-color: white;
     border-bottom-color: white;
 }
+
 .navbar-default .navbar-nav > .open > a .caret, 
 .navbar-default .navbar-nav > .open > a:hover .caret, 
 .navbar-default .navbar-nav > .open > a:focus .caret {

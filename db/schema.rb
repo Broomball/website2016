@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20160725023320) do
     t.string   "position",        limit: 255
     t.integer  "player_id",       limit: 4
     t.string   "committee_email", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20160725023320) do
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title",      limit: 30
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20160725023320) do
     t.integer  "weight",           limit: 4
     t.integer  "years_played",     limit: 4
     t.text     "description",      limit: 255
-    t.datetime "created_at",                                                       null: false
-    t.datetime "updated_at",                                                       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "players", ["full_name"], name: "index_players_on_full_name", using: :btree
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20160725023320) do
     t.integer  "season_id",    limit: 4
     t.string   "rink_name",    limit: 255
     t.string   "display_name", limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 20160725023320) do
     t.string   "conference",    limit: 255
     t.integer  "captain_id",    limit: 4
     t.string   "team_pic_path", limit: 255, default: "/assets/default_pic.png"
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

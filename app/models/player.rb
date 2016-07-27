@@ -5,5 +5,4 @@ class Player < ActiveRecord::Base
   scope :search, lambda {|query|
     where(["full_name LIKE ?", "%#{query}%"])  
   }
-
 end

@@ -1,0 +1,111 @@
+<!-- This view is used to display a single team-->
+<%provide(:title, "Sheep Sheerers")%>
+
+<div class="container-fluid table-responsive">
+	<div class = "row">
+		<div class="jumbotron">
+			<div class="row">
+                <div class="col-lg-9 col-md-8 col-sm-6">
+                	<h1 id="team"><u>Sheep Sheerers</u></h1>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                   <img src="/assets/carousel2.jpg" class="img-responsive"/>
+                </div>
+			</div>
+		</div>
+
+		<table class="table table-hover active">
+			<thead>
+	    		<tr>
+			      <th>Player Name</th>
+			      <th>Nick Name</th>
+			      <th>Position</th>
+			      <th>Goals</th>
+			      <th>Assists</th>
+			      <th>Points</th>
+			      <th>Penalty Minutes</th>
+			      <th></th>
+	    		</tr>
+	  		</thead>
+	  		<tbody>
+	  			<%10.times do%>
+				<tr>
+					<td><a href="#">Nick Fisher</a></td>
+					<td>Fish</td>
+					<td>Left Wing</td>
+					<td>23</td>
+					<td>9</td>
+					<td>32</td>
+					<td>16:00</td>
+					<td><a href="#">Remove</a></td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
+	<div class = "row">
+		<button class="btn btn-sm edit-btn">Add Player <span class="glyphicon glyphicon-plus"></span></button>
+	</div>
+	<div class = "row">
+		<h2 class="table-title"><span>2016 Team Schedule</span></h2>
+
+		<table class="table table-hover active">
+			<thead>
+	    		<tr>
+			      <th>Day</th>
+			      <th>Time</th>
+			      <th>Rink</th>
+			      <th>Home</th>
+			      <th>Score</th>
+			      <th>Away</th>
+			      <th></th>
+	    		</tr>
+	  		</thead>
+	  		<tbody>
+	  			<%10.times do%>
+				<tr>
+					<td>February 3rd, 2016</td>
+					<td>6:00 pm</td>
+					<td>Gold</td>
+					<td><a href="#">Sheep Sheerers</a></td>
+					<td>6 - 5</td>
+					<td><a href="#">Hash Slinging Slashers</a></td>
+					<!--TODO: Remove column if not captain-->
+					<td><a href="#">Enter Stats</a></td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
+	<div class = "row">
+		<h2 class="table-title"><span>2015 Team Schedule</span></h2>
+
+		<table class="table table-hover active">
+			<thead>
+	    		<tr>
+			      <th>Day</th>
+			      <th>Time</th>
+			      <th>Rink</th>
+			      <th>Home</th>
+			      <th>Score</th>
+			      <th>Away</th>
+			      <th></th>
+	    		</tr>
+	  		</thead>
+	  		<tbody>
+	  			<%10.times do%>
+				<tr>
+					<td>February 3rd, 2016</td>
+					<td>6:00 pm</td>
+					<td>Gold</td>
+					<td><a href="#">Sheep Sheerers</a></td>
+					<td>6 - 5</td>
+					<td><a href="#">Hash Slinging Slashers</a></td>
+					<!--TODO: Remove column if not captain-->
+					<td><a href="#">Enter Stats</a></td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+	</div>
+</div>
