@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :players
   get 'committee_pages/index'
   
   get 'home/news'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :players
   resources :teams
+  resources :committee_pages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

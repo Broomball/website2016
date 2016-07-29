@@ -1,3 +1,5 @@
+<!-- Create a team -->
+
 <%= form_for(@team) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
@@ -10,6 +12,10 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.text_field(:name)%>
+  <%= f.text_field(:league)%>
+  <%= f.text_field(:league)%>
 
   <div class="actions">
     <%= f.submit %>

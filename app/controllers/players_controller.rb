@@ -89,5 +89,4 @@ class PlayersController < ApplicationController
     def player_params
       params.fetch(:player, {})
     end
-#>>>>>>> kylehome
 end

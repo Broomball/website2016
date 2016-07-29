@@ -28,5 +28,27 @@ module Website2016
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+      
+    #GLOBAL VARIABLES
+    #Automagically assign date to the @season variable
+    today = Time.now
+    today.month > 4 ? (@season = today.year + 1) : (@season = today.year) 
+    
+    
+    #Important Dates
+    @registration_test_open
+    @registration_test_close
+    @registration_open
+    @registration_close
+    @roster_change_open
+    @roster_change_close
+    @season_start
+    @season_close
+    
+    #Prices
+    @player_cost = 35
+    @ball = 20
+    @rink_reservation = 20
+
   end
 end

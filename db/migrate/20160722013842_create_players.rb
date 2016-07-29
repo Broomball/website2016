@@ -18,6 +18,6 @@ class CreatePlayers < ActiveRecord::Migration
       t.text "description", :limit => 250
       t.timestamps null: false
     end
-    add_index("players", "full_name")
+    add_index :players, ["mtu_id", "full_name"]
   end
 end

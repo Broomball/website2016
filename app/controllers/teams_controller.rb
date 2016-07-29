@@ -4,9 +4,6 @@ class TeamsController < ApplicationController
   def teampage
   end
 
-  def index
-  end
-
   #Goes to page with a list of all teams
   def allteams
   end
