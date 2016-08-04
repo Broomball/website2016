@@ -1,4 +1,5 @@
 <!-- This view is used to display a single team-->
+
 <%provide(:title, "Sheep Sheerers")%>
 
 <div class="container-fluid table-responsive">
@@ -6,7 +7,7 @@
 		<div class="jumbotron">
 			<div class="row">
                 <div class="col-lg-9 col-md-8 col-sm-6">
-                	<h1 id="team"><u>Sheep Sheerers</u></h1>
+                	<h1 id="team"><u><%=truncate("Sheep Sheerers", :length => 20) %></u></h1>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                    <img src="/assets/carousel2.jpg" class="img-responsive"/>

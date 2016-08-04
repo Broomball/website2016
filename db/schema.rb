@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728012007) do
+ActiveRecord::Schema.define(version: 20160802004700) do
 
   create_table "committees", id: false, force: :cascade do |t|
     t.string   "position",             limit: 255
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20160728012007) do
   end
 
   create_table "leagues", id: false, force: :cascade do |t|
-    t.integer  "season_id",         limit: 4
     t.string   "league",            limit: 255
+    t.integer  "season_id",         limit: 4
     t.string   "league_head_name",  limit: 255
     t.string   "league_head_email", limit: 255
     t.string   "full_league_name",  limit: 255
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20160728012007) do
     t.datetime "updated_at",                    null: false
   end
 
-  add_index "leagues", ["league"], name: "index_leagues_on_league", using: :btree
+  add_index "leagues", ["league"], name: "index_leagues_on_league", unique: true, using: :btree
 
   create_table "news_articles", force: :cascade do |t|
     t.string   "title",             limit: 30
@@ -69,27 +69,14 @@ ActiveRecord::Schema.define(version: 20160728012007) do
     t.datetime "updated_at",                                                          null: false
   end
 
-  create_table "players", force: :cascade do |t|
-    t.string   "mtu_id",           limit: 15
-    t.string   "first_name",       limit: 25
-    t.string   "last_name",        limit: 25
-    t.string   "full_name",        limit: 50
-    t.string   "nickname",         limit: 40
-    t.string   "email",            limit: 40
-    t.string   "profile_pic_path", limit: 255, default: "/assets/default_pic.png"
-    t.string   "major",            limit: 30
-    t.string   "hometown",         limit: 30
-    t.string   "position",         limit: 30
-    t.integer  "height_feet",      limit: 4
-    t.integer  "height_inches",    limit: 4
-    t.integer  "weight",           limit: 4
-    t.integer  "years_played",     limit: 4
-    t.text     "description",      limit: 255
-    t.datetime "created_at",                                                       null: false
-    t.datetime "updated_at",                                                       null: false
+  create_table "player_seasons", force: :cascade do |t|
+    t.integer  "players_id",                limit: 4
+    t.integer  "season_id",                 limit: 4
+    t.boolean  "attended_captains_meeting"
+    t.string   "residency_league",          limit: 255
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
-
-  add_index "players", ["mtu_id", "full_name"], name: "index_players_on_mtu_id_and_full_name", using: :btree
 
   create_table "rinks", id: false, force: :cascade do |t|
     t.integer  "season_id",    limit: 4
@@ -103,8 +90,8 @@ ActiveRecord::Schema.define(version: 20160728012007) do
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",            limit: 75
-    t.integer  "league_id",       limit: 4
-    t.integer  "conference_id",   limit: 4
+    t.string   "league",          limit: 255
+    t.string   "conference",      limit: 255
     t.integer  "captain_id",      limit: 4
     t.integer  "season_id",       limit: 4
     t.boolean  "valid_team"
@@ -120,6 +107,6 @@ ActiveRecord::Schema.define(version: 20160728012007) do
     t.datetime "updated_at",                                                      null: false
   end
 
-  add_index "teams", ["name", "league_id", "conference_id"], name: "index_teams_on_name_and_league_id_and_conference_id", using: :btree
+  add_index "teams", ["name", "league", "conference"], name: "index_teams_on_name_and_league_and_conference", using: :btree
 
 end

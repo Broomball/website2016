@@ -2,8 +2,8 @@ class CreateTeams < ActiveRecord::Migration
   def change
     create_table :teams do |t|
       t.string "name", :limit => 75
-      t.references :league
-      t.references :conference
+      t.string "league"
+      t.string "conference"
       t.integer "captain_id"
       t.integer "season_id"
       t.boolean "valid_team"
@@ -18,6 +18,6 @@ class CreateTeams < ActiveRecord::Migration
       t.timestamps null: false
     end
     
-    add_index :teams, ["name", "league_id", "conference_id"]
+    add_index :teams, ["name", "league", "conference"]
   end
 end

@@ -18,7 +18,7 @@
 @import "shared/navigation";
 @import "shared/footer";
 @import "components/carousel";
-@import "home";
+@import "index";
 @import "teams";
 @import "components/tables";
 @import "components/panels";
@@ -26,6 +26,9 @@
 @import "components/list_groups";
 @import "players";
 @import "committee_pages";
+@import "news_articles";
+@import "components/select";
+
 
 body{
   background: linear-gradient(

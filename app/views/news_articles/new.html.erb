@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+	<div class="panel-heading article-title">Create News Article</div>
+	<div class="panel-body">
+		<%= form_for :news_article, url: news_articles_path, html: {role: "form"} do |f| %>
+			<%= render(:partial => "form", :locals => {:f =>f})%>
+		<% end %>
+	</div>
+</div>

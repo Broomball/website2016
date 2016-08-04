@@ -1,0 +1,17 @@
+<div class="form-group">
+	<%= f.label :title, "Title:" %>
+	<%= f.text_field(:title, class: "form-control")%>		  
+</div>
+<div class="form-group">		
+	<%= f.label :short_description, "Short Description (for Front Page):" %>
+	<%= f.text_area(:short_description, class: "form-control") %>
+</div>
+<div class="form-group">		
+	<%= f.label :news_body, "Body:" %>
+	<%= f.text_area(:news_body, class: "form-control")%>
+</div>
+<div class="form-group">
+		<%= f.file_field :photo%>
+</div>	
+<%= f.submit "Create Article",  class: "btn article-btn"%>	
+		

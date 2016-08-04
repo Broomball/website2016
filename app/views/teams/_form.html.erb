@@ -1,23 +1,9 @@
-<!-- Create a team -->
-
-<%= form_for(@team) do |f| %>
-  <% if @team.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
-
-      <ul>
-      <% @team.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <%= f.text_field(:name)%>
-  <%= f.text_field(:league)%>
-  <%= f.text_field(:league)%>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div class="form-group">
+	<%= f.label :name, "Team Name:" %>
+	<%= f.text_field(:name, class: "form-control")%>		  
+</div>
+<div class="form-group">		
+	<%=f.select(:league, [["DHH & apartments", "dhh"], ["East Wads", "ewh"], ["West Wads", "wwh"], ["Off-Campus", "off"], ["Non-Compete", "onc"], ["Womens", "wom"], ["McNair", "mcn"]], class: "form-control") %>
+</div>	
+<%= f.submit "Create Team",  class: "btn article-btn"%>	
+		
