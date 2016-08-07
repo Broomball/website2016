@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @practice_rink_reservation.team_id %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @practice_rink_reservation.paid %>
+</p>
+
+<%= link_to 'Edit', edit_practice_rink_reservation_path(@practice_rink_reservation) %> |
+<%= link_to 'Back', practice_rink_reservations_path %>

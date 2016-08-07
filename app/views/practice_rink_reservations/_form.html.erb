@@ -1,0 +1,25 @@
+<%= form_for(@practice_rink_reservation) do |f| %>
+  <% if @practice_rink_reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@practice_rink_reservation.errors.count, "error") %> prohibited this practice_rink_reservation from being saved:</h2>
+
+      <ul>
+      <% @practice_rink_reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :team_id %><br>
+    <%= f.text_field :team_id %>
+  </div>
+  <div class="field">
+    <%= f.label :paid %><br>
+    <%= f.check_box :paid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :practice_rink_reservations
   root 'application#index'
 
   resources :players

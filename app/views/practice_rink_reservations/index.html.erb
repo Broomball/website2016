@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Practice Rink Reservations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Paid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @practice_rink_reservations.each do |practice_rink_reservation| %>
+      <tr>
+        <td><%= practice_rink_reservation.team_id %></td>
+        <td><%= practice_rink_reservation.paid %></td>
+        <td><%= link_to 'Show', practice_rink_reservation %></td>
+        <td><%= link_to 'Edit', edit_practice_rink_reservation_path(practice_rink_reservation) %></td>
+        <td><%= link_to 'Destroy', practice_rink_reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Practice rink reservation', new_practice_rink_reservation_path %>
