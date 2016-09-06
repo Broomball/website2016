@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @invoice.id %>
+</p>
+
+<p>
+  <strong>Amount paid:</strong>
+  <%= @invoice.amount_paid %>
+</p>
+
+<p>
+  <strong>Amount paid:</strong>
+  <%= @invoice.amount_paid %>
+</p>
+
+<p>
+  <strong>Late:</strong>
+  <%= @invoice.late %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @invoice.due_date %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @invoice.team_id %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @invoice.player_id %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

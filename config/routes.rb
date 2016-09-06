@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :invoices
   resources :practice_rink_reservations
   root 'application#index'
 
