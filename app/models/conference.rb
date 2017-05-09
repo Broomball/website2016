@@ -1,2 +1,2 @@
-class Conference < ActiveRecord::Base
+class Conference < ActiveRecord
 end

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,68 +12,67 @@
 
 ActiveRecord::Schema.define(version: 20160816210851) do
 
-  create_table "conferences", force: :cascade do |t|
-    t.string   "league_id",  limit: 255
-    t.integer  "number",     limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "conferences", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "league_id"
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["league_id"], name: "index_conferences_on_league_id"
   end
 
-  add_index "conferences", ["league_id"], name: "index_conferences_on_league_id", using: :btree
-
-  create_table "games", force: :cascade do |t|
-    t.string   "rink_id",       limit: 255
-    t.string   "home_team_id",  limit: 255
-    t.string   "away_team_id",  limit: 255
-    t.string   "home_goals",    limit: 255
-    t.string   "away_goals",    limit: 255
-    t.string   "overtime_loss", limit: 255
-    t.string   "video_url",     limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
-  create_table "invoices", force: :cascade do |t|
-    t.string   "invoice_id",  limit: 255
-    t.decimal  "amount_paid",             precision: 8, scale: 2
-    t.boolean  "late"
-    t.datetime "due_date"
-    t.string   "team_id",     limit: 255
-    t.string   "player_id",   limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-  end
-
-  create_table "news_articles", force: :cascade do |t|
-    t.string   "title",        limit: 30
-    t.string   "picture_path", limit: 255,   default: "/assets/default_pic.png"
-    t.text     "news_body",    limit: 65535
-    t.datetime "created_at",                                                     null: false
-    t.datetime "updated_at",                                                     null: false
-  end
-
-  create_table "player_seasons", force: :cascade do |t|
-    t.integer  "players_id",                limit: 4
-    t.integer  "season_id",                 limit: 4
-    t.boolean  "attended_captains_meeting"
-    t.string   "residency_league",          limit: 255
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-  end
-
-  create_table "players", force: :cascade do |t|
+  create_table "games", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "rink_id"
+    t.string "home_team_id"
+    t.string "away_team_id"
+    t.string "home_goals"
+    t.string "away_goals"
+    t.string "overtime_loss"
+    t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "practice_rink_reservations", force: :cascade do |t|
-    t.string   "team_id",    limit: 255
-    t.boolean  "paid"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "invoices", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "invoice_id"
+    t.decimal "amount_paid", precision: 8, scale: 2
+    t.boolean "late"
+    t.datetime "due_date"
+    t.string "team_id"
+    t.string "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "teams", force: :cascade do |t|
+  create_table "news_articles", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "title", limit: 30
+    t.string "picture_path", default: "/assets/default_pic.png"
+    t.text "news_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "player_seasons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "players_id"
+    t.integer "season_id"
+    t.boolean "attended_captains_meeting"
+    t.string "residency_league"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "practice_rink_reservations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "team_id"
+    t.boolean "paid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

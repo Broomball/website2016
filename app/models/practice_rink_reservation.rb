@@ -1,2 +1,2 @@
-class PracticeRinkReservation < ActiveRecord::Base
+class PracticeRinkReservation < ActiveRecord
 end

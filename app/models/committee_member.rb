@@ -1,2 +1,2 @@
-class CommitteeMember < ActiveRecord::Base
+class CommitteeMember < ActiveRecord
 end

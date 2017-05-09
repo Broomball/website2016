@@ -1,2 +1,2 @@
-class Rink < ActiveRecord::Base
+class Rink < ActiveRecord
 end

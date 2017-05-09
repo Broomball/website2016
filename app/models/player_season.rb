@@ -1,2 +1,2 @@
-class PlayerSeason < ActiveRecord::Base
+class PlayerSeason < ActiveRecord
 end

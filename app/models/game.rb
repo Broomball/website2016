@@ -1,4 +1,4 @@
-class Game < ActiveRecord::Base
+class Game < ActiveRecord
 
 
 

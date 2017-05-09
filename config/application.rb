@@ -1,54 +1,18 @@
-require File.expand_path('../boot', __FILE__)
-
-
+require_relative 'boot'
 
 require 'rails/all'
-
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-#Environment Variables Gem
-require 'dotenv' ; Dotenv.load ".env.local", ".env.#{Rails.env}"
-
 module Website2016
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
-    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
-    # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
-
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
-
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-      
-    #GLOBAL VARIABLES
-    #Automagically assign date to the @season variable
-    today = Time.now
-    today.month > 4 ? (@season = today.year + 1) : (@season = today.year) 
-    
-    
-    #Important Dates
-    @registration_test_open
-    @registration_test_close
-    @registration_open
-    @registration_close
-    @roster_change_open
-    @roster_change_close
-    @season_start
-    @season_close
-    
-    #Prices
-    @player_cost = 35
-    @ball = 20
-    @rink_reservation = 20
-
   end
 end
