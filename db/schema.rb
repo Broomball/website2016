@@ -10,17 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816210851) do
+ActiveRecord::Schema.define(version: 20170511184039) do
 
-  create_table "conferences", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string "league_id"
-    t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["league_id"], name: "index_conferences_on_league_id"
-  end
-
-  create_table "games", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "rink_id"
     t.string "home_team_id"
     t.string "away_team_id"
@@ -32,47 +24,59 @@ ActiveRecord::Schema.define(version: 20160816210851) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "invoices", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string "invoice_id"
-    t.decimal "amount_paid", precision: 8, scale: 2
-    t.boolean "late"
-    t.datetime "due_date"
-    t.string "team_id"
-    t.string "player_id"
+  create_table "player_games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "goals"
+    t.integer "assists"
+    t.integer "save"
+    t.integer "goals_allowed"
+    t.integer "penalty_minutes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "news_articles", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string "title", limit: 30
-    t.string "picture_path", default: "/assets/default_pic.png"
-    t.text "news_body"
+  create_table "player_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.boolean "captain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "player_id"
+    t.integer "team_id"
+  end
+
+  create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "mtu_id", limit: 20
+    t.string "first_name"
+    t.string "last_name"
+    t.string "nickname", limit: 60
+    t.string "profile_pic"
+    t.string "major", limit: 50
+    t.string "hometown", limit: 50
+    t.string "position", limit: 30
+    t.integer "height_feet"
+    t.integer "height_inches"
+    t.integer "age"
+    t.integer "years_played"
+    t.integer "goals"
+    t.integer "assists"
+    t.text "description"
+    t.boolean "committee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "player_seasons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.integer "players_id"
+  create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", limit: 75
+    t.string "league"
+    t.string "conference"
     t.integer "season_id"
-    t.boolean "attended_captains_meeting"
-    t.string "residency_league"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "players", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "practice_rink_reservations", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string "team_id"
-    t.boolean "paid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "teams", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.boolean "valid_team", default: false
+    t.boolean "valid_name", default: false
+    t.string "team_pic"
+    t.integer "wins"
+    t.integer "losses"
+    t.integer "overtime_losses"
+    t.integer "points"
+    t.integer "goals_for"
+    t.integer "goals against"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

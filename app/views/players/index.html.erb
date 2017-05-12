@@ -13,17 +13,23 @@
 		      <th>Points</th>
     		</tr>
   		</thead>
-  		<tbody>	
-  			<%10.times do%>	
-			<tr>
-				<td>Nick Fisher</td>
-				<td>Fish</td>
-				<td>Left Wing</td>
-				<td>23</td>
-				<td>9</td>
-				<td>32</td>
-			</tr>
-			<%end%>
+  		<tbody>
+
+			<% @players.each do |player| %>
+				<tr>
+					<td><%= player.first_name + " " + player.last_name %></td>
+					<td><%= player.nickname %></td>
+					<td><%= player.position %></td>
+					<td><%= player.goals %></td>
+					<td><%= player.assists %></td>
+					<td></td>
+				</tr>
+			<% end %>
+
+			<% if @players.size == 0 %>
+				<em>No Players Found</em>
+			<% end %>
+
 		</tbody>
 	</table>
 </div>

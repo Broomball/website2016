@@ -1,14 +1,6 @@
 class TeamsController < ApplicationController
-  
-  #Goes to specific team page
-  def teampage
-  end
 
-  #Goes to page with a list of all teams
-  def allteams
-  end
-
-  # before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   # GET /teams
   # GET /teams.json
@@ -24,10 +16,12 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+
   end
 
   # GET /teams/1/edit
   def edit
+    @playerteams = PlayerTeam.where(team_id: @team.id)
   end
 
   # POST /teams
@@ -78,6 +72,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params.fetch(:team, {})
+      params.require(:team).permit(:name, :league)
     end
 end

@@ -4,7 +4,11 @@
 <div class="container-fluid table-responsive">
 	<div class="row">
 		<div class="col-xs-4 profile-pic">
+			<% if @player.profile_pic? %>
+			<%= image_tag @player.profile_pic.url, class:"img-responsive img-circle" %>
+			<% else %>
 			<img src="/assets/profile_pictures/nafisher/profile_test.jpg" class="img-responsive img-circle" alt="">
+			<% end %>
 			<!--TODO: Hide button if not current user and remove opacity-->
 			<!--TODO: Create Modal for changing pic-->
 			<button class="btn btn-xs pic-btn">Change <span class="glyphicon glyphicon-pencil"></span></button>
@@ -13,22 +17,21 @@
 			<div class="panel panel-default">
 				<!--TODO: Remove edit button if not current user-->
 				<!--TODO: Create Modal for editing profile info-->
-				<div class="panel-heading">Nick Fisher <button class="btn btn-xs edit-btn">Edit <span class="glyphicon glyphicon-pencil"></span></button> </div>
+				<div class="panel-heading"> <%= @player.first_name + " " + @player.last_name %> <%= link_to edit_player_path, class:"btn btn-xs edit-btn" do %>Edit <span class="glyphicon glyphicon-pencil"></span> <%end%>  </div>
   				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-6" id="desc-col">
-							<b>Nickname:</b> <span>Fish</span><br>
-							<b>Major:</b> <span>Computer Engineering</span> <br>
-							<b>Hometown:</b> <span>Traverse City, MI</span><br>
-							<b>Position:</b> <span>Forward</span><br>
-							<b>Height:</b> <span>5'10"</span><br>
-							<b>Weight:</b> <span>180 lbs.</span><br>
-							<b>Years played:</b> <span>3</span><br>
+							<b>Name:  </b> <span><%= @player.first_name %> <% if @player.nickname? %> <%= " \'" + @player.nickname + "\'" %> <% end %> <%=" " + @player.last_name %></span><br>
+							<b>Major:</b> <span><%= @player.major %></span> <br>
+							<b>Hometown:</b> <span><%= @player.hometown %></span><br>
+							<b>Position:</b> <span><%= @player.position %></span><br>
+							<b>Height:</b> <span><% if @player.height_feet? && @player.height_inches? %> <%= "#{@player.height_feet}\' #{@player.height_inches}\'\'" %> <% end %></span><br>
+							<b>Years played:</b> <span><%= @player.years_played %></span><br>
 						</div>
 
 						<div class="col-xs-6">
 							<h5>Player Description:</h5>
-						I am the best player that broomball has ever encountered in all the history that it has been around.
+						<%= @player.description %>
 						</div>
 					</div>
 				</div>
@@ -48,38 +51,21 @@
 		      <th>Goalie Minutes</th>
 		      <th>Goals Against</th>
     		</tr>
-  		</thead>
+  	</thead>
   		<tbody>
-			<tr>
-				<td>2016</td>
-				<td><a href="#">Hash Slinging Slashers</a></td>
-				<td>25</td>
-				<td>24</td>
-				<td>30</td>
-				<td>900</td>
-				<td>4</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>2016</td>
-				<td><a href="#">Sheep Sheerers</a></td>
-				<td>25</td>
-				<td>24</td>
-				<td>30</td>
-				<td>900</td>
-				<td>4</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>2016</td>
-				<td>All</td>
-				<td>50</td>
-				<td>48</td>
-				<td>60</td>
-				<td>1800</td>
-				<td>8</td>
-				<td>0</td>
-			</tr>
+				<%= @playerteams.each do |pt| %>
+				<tr>
+					<td><%= pt.season_id %></td>
+					<td><%= link_to pt.name, team_path(pt.id) %></td>
+					<td>TODO</td>
+					<td>TODO</td>
+					<td>TODO</td>
+					<td>TODO</td>
+					<td>4</td>
+					<td>0</td>
+				</tr>
+				<% end %>
+
 			<tr>
 				<td><b>Total</b></td>
 				<td>--</td>

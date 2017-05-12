@@ -12,6 +12,33 @@
   <% end %>
 
   <div class="actions">
+
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %><br>
+
+    <%= f.label :major %>
+    <%= f.text_field :major %><br>
+
+    <%= f.label :hometown %>
+    <%= f.text_field :hometown %><br>
+
+    <%= f.label :position %>
+    <%= f.text_field :position %><br>
+
+    <%= f.label :years_played %>
+    <%= f.text_field :years_played %><br>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %><br>
+
+    <%= f.label :profile_pic %><br>
+    <%= f.file_field :profile_pic %>
+    <% if f.object.profile_pic? %>
+      <%= image_tag f.object.profile_pic.thumb.url %>
+      <%= f.label :remove_profile_pic %>
+      <%= f.check_box :remove_profile_pic %>
+    <% end %>
+
     <%= f.submit %>
   </div>
 <% end %>

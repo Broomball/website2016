@@ -37,6 +37,11 @@ gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#File upload. Read more: https://github.com/carrierwaveuploader/carrierwave
+gem 'carrierwave', '~> 1.0'
+
+gem 'mini_magick', '~> 4.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

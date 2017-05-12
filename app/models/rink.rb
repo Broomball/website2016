@@ -1,2 +1,0 @@
-class Rink < ActiveRecord
-end

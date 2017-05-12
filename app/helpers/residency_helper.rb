@@ -1,0 +1,2 @@
+module ResidencyHelper
+end

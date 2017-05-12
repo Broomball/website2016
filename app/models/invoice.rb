@@ -1,2 +1,0 @@
-class Invoice < ActiveRecord
-end

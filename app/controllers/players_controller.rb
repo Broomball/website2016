@@ -3,31 +3,31 @@ class PlayersController < ApplicationController
   # #List players w/stats
   # def listPlayers
   # end
-# 
+#
   # #Profile Page for current user
   # def profile
   # end
-# 
+#
   # #Goes to schedule of the current user
   # def schedule
   # end
-#   
+#
   # #Lists the stats for the current user
   # def stats
   # end
 # =======
-  # before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :set_player, only: [:show, :edit, :update, :destroy]
 
   # GET /players
   # GET /players.json
   def index
     @players = Player.all
-    
   end
 
   # GET /players/1
   # GET /players/1.json
   def show
+    @playerteams = PlayerTeam.joins(:team).select("teams.id, name, season_id").where(player_id: @player.id)
   end
 
   # GET /players/new
@@ -37,6 +37,7 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+
   end
 
   # POST /players
@@ -59,7 +60,7 @@ class PlayersController < ApplicationController
   # PATCH/PUT /players/1.json
   def update
     respond_to do |format|
-      if @player.update(player_params)
+      if @player.update_attributes(player_params)
         format.html { redirect_to @player, notice: 'Player was successfully updated.' }
         format.json { render :show, status: :ok, location: @player }
       else
@@ -79,7 +80,23 @@ class PlayersController < ApplicationController
     end
   end
 
+  def residencyindex
+    @players=Player.all
+  end
+
+  def import
+    begin
+
+      Player.import(params[:file])
+
+      redirect_to '/residencyindex', notice: "Residency Data Imported!"
+    rescue
+      redirect_to '/residencyindex', notice: "Invalid CSV file format"
+    end
+  end
+
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_player
       @player = Player.find(params[:id])
@@ -87,6 +104,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.fetch(:player, {})
+      params.require(:player).permit(:mtu_id, :first_name, :last_name, :nickname, :email, :profile_pic, :remove_profile_pic, :major, :hometown, :position, :height_feet, :height_inches, :years_played, :description)
     end
 end

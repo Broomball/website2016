@@ -1,2 +1,0 @@
-class Conference < ActiveRecord
-end

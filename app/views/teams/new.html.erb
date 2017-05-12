@@ -1,9 +1,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading article-title">Create Team</div>
 	<div class="panel-body">
-		<%= form_for :team, url: teams_path, html: {role: "form"} do |f| %>
-			<%= render(:partial => "form", :locals => {:f =>f})%>
-		<% end %>
+		<%= render 'form' %>
 	</div>
 </div>
 

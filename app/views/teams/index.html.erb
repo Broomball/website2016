@@ -16,17 +16,19 @@
     		</tr>
   		</thead>
   		<tbody>
-  			<%10.times do%>
+
+			<% @teams.each do |t| %>
 			<tr>
-				<td><a href="#">Hash Slinging Slashers</a></td>
-				<td>Off-Campus</td>
-				<td>1</td>
-				<td>2</td>
-				<td>9</td>
-				<td>0</td>
-				<td>0</td>
+				<td><%= link_to t.name, team_path(t) %></td>
+				<td><%=t.league%></td>
+				<td><%=t.conference%></td>
+				<td>TODO</td>
+				<td><%=t.wins%></td>
+				<td><%=t.losses%></td>
+				<td><%=t.overtime_losses%></td>
 			</tr>
-			<%end%>
+			<% end %>
+
 		</tbody>
 	</table>
 </div>

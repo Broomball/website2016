@@ -1,2 +1,0 @@
-class CommitteeMember < ActiveRecord
-end

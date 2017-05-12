@@ -1,7 +1,7 @@
-class Team < ActiveRecord
+class Team < ApplicationRecord
+  has_many :playerteams
+  has_many :players, :through => :playerteams
 
-  has_and_belongs_to_many :players
-  belongs_to :league
-  belongs_to :conference
+  validates_presence_of :name
 
 end

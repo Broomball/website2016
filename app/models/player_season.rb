@@ -1,2 +1,0 @@
-class PlayerSeason < ActiveRecord
-end

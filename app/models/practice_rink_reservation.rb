@@ -1,2 +1,0 @@
-class PracticeRinkReservation < ActiveRecord
-end

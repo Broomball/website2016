@@ -58,3 +58,6 @@ bower.json
 
 #Ignore project file used for Aptana IDE (ask Nick if curious)
 .project
+
+#Ignore profile pictures
+/public/uploads/

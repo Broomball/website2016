@@ -1,0 +1,29 @@
+<%= form_with(model: player_team, local: true) do |f| %>
+  <% if player_team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(player_team.errors.count, "error") %> prohibited this player_team from being saved:</h2>
+
+      <ul>
+      <% player_team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="form-group">
+  		<%= f.label "Enter mtu email address of player to add:" %>
+  		<%= f.text_field(:player_id, class: "form-control")%>
+      <%= f.label "captain" do %>
+        <%= f.check_box :captain %>
+        Make this player the captain
+      <% end %>
+      <%= f.hidden_field :team_id, :value => params[:team] %>
+
+  	</div>
+
+
+  	<%= f.submit "Add player",  class: "btn article-btn"%>
+  </div>
+<% end %>
