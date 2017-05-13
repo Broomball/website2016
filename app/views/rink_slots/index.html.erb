@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rink Slots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rink</th>
+      <th>Slot</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rink_slots.each do |rink_slot| %>
+      <tr>
+        <td><%= rink_slot.rink %></td>
+        <td><%= rink_slot.slot %></td>
+        <td><%= link_to 'Show', rink_slot %></td>
+        <td><%= link_to 'Edit', edit_rink_slot_path(rink_slot) %></td>
+        <td><%= link_to 'Destroy', rink_slot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rink Slot', new_rink_slot_path %>

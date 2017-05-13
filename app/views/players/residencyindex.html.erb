@@ -3,9 +3,14 @@
 <% if flash[:notice] %>
    <div class="notice"><%= flash[:notice] %></div>
  <% end %>
- 
-<h4>Import residency</h4>
-  <%= form_tag import_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import CSV" %>
-  <% end %>
+
+ <div class="panel panel-default">
+ 	<div class="panel-heading article-title">Edit Player</div>
+ 	<div class="panel-body">
+    <h4>Import residency</h4>
+      <%= form_tag import_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import CSV" %>
+      <% end %>
+  </div>
+</div>

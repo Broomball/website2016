@@ -86,9 +86,7 @@ class PlayersController < ApplicationController
 
   def import
     begin
-
       Player.import(params[:file])
-
       redirect_to '/residencyindex', notice: "Residency Data Imported!"
     rescue
       redirect_to '/residencyindex', notice: "Invalid CSV file format"

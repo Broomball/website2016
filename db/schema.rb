@@ -10,15 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511184039) do
+ActiveRecord::Schema.define(version: 20170513040953) do
+
+  create_table "carousel_pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "description"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "rink_id"
+    t.string "rink_slot_id"
     t.string "home_team_id"
     t.string "away_team_id"
     t.string "home_goals"
     t.string "away_goals"
     t.string "overtime_loss"
+    t.date "day"
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,6 +68,13 @@ ActiveRecord::Schema.define(version: 20170511184039) do
     t.integer "assists"
     t.text "description"
     t.boolean "committee"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rink_slots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "rink"
+    t.datetime "slot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
