@@ -1,51 +1,24 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <% (0..@carousel_pictures.size-1).each do |i| %>
+        <% if i==0 %> <%= content_tag(:li, "", class: "active", "data-target": "#myCarousel", "data-slide-to": i) %>
+        <% else %> <%= content_tag(:li, "", "data-target": "#myCarousel", "data-slide-to": i) %> <% end %>
+      <% end %>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <img src="/assets/carousel1.jpg" alt="Image">
+    <% @carousel_pictures.each_with_index do |cp, i| %>
+      <% if i==0 %> <div class="item active">
+      <% else %><div class="item"><% end %>
+        <%= image_tag cp.picture %>
         <div class="carousel-caption">
-          <h3><span>Title</span></h3>
-          <p><span>Put description here</span></p>
+          <h3><span> <%= cp.title %> </span></h3>
+          <p><span> <%= cp.description %></span></p>
         </div>
       </div>
-
-      <div class="item">
-        <img src="/assets/carousel2.jpg" alt="Image">
-        <div class="carousel-caption">
-          <h3><span>Title</span></h3>
-          <p><span>Put description here</span></p>
-        </div>
-      </div>
-    <div class="item">
-        <img src="/assets/carousel3.jpg" alt="Image">
-        <div class="carousel-caption">
-          <h3><span>Title</span></h3>
-          <p><span>Put description here</span></p>
-        </div>
-      </div>
-    <div class="item">
-        <img src="/assets/carousel4.jpg" alt="Image">
-        <div class="carousel-caption">
-          <h3><span>Title</span></h3>
-          <p><span>Put description here</span></p>
-        </div>
-      </div>
-    <div class="item">
-        <img src="/assets/carousel5.jpg" alt="Image">
-        <div class="carousel-caption">
-          <h3><span>Title</span></h3>
-          <p><span>Put description here</span></p>
-        </div>
-      </div>
+    <% end %>
     </div>
 
     <!-- Left and right controls -->

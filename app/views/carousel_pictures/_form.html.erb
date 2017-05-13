@@ -1,0 +1,37 @@
+<%= form_for(@carousel_picture) do |form| %>
+  <% if carousel_picture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(carousel_picture.errors.count, "error") %> prohibited this carousel_picture from being saved:</h2>
+
+      <ul>
+      <% carousel_picture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :carousel_picture_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :carousel_picture_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :picture %><br>
+    <%= form.file_field :picture %>
+    <% if form.object.picture? %>
+      <%= image_tag form.object.picture.thumb.url %>
+      <%= form.label :remove_picture %>
+      <%= form.check_box :remove_picture %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
