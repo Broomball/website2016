@@ -57,20 +57,16 @@
         	</ul>
 		</li>
 		<!--TODO If signed in, show username, otherwise show "Sign In"-->
-	    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Sign in <span class="glyphicon glyphicon-log-in"></span></a>
-	      	<div class="dropdown-menu">
-		      	<form id="formLogin" class="form container-fluid">
-		          <div class="form-group">
-		            <label for="usr">Name:</label>
-		            <input type="text" class="form-control" id="usr">
-		          </div>
-		          <div class="form-group">
-		            <label for="pwd">Password:</label>
-		            <input type="password" class="form-control" id="pwd">
-		          </div>
-		          <button type="button" id="btnLogin" class="btn btn-block">Login</button>
-		        </form>
-	        </div>
+	    <li class="dropdown">
+	        <% if current_user %>
+		<%= link_to signout_path, id: "sign_out" do %>
+		<strong><%= current_user.name %></strong>, Signout
+		<% end %>
+		<% else %>
+		<%= link_to "/auth/google_oauth2", id: "sign_in" do %>
+		Sign in <span class="glyphicon glyphicon-log-in"></span>
+		<% end %>
+		<% end %>
 	    </li>
     </ul>
   </div>

@@ -1,2 +1,0 @@
-class RinkSlot < ApplicationRecord
-end

@@ -1,2 +1,0 @@
-module RinkSlotsHelper
-end
