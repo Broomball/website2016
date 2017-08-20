@@ -35,15 +35,18 @@
 		</li>
 		<!--Link to Schedule (list view)-->
       	<li><a href="#"><div class="hidden-sm">Schedule</div><span data-toggle="tooltip" title="Schedule" data-placement="auto bottom" class="glyphicon glyphicon-calendar visible-sm"></span></a></li>
-      	<!--Search bar form-->
-      	<form class="navbar-form navbar-left" role="search">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search for player/team">
-	        </div>
-	        <!--Search button-->
-	        <button type="submit" class="btn btn-sm"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-      	</form>
-      	<!--Dropdown for more links-->
+
+        <!--Search bar form-->
+        <%= form_tag players_path, :class => "navbar-form navbar-left", :role => "search", method: :get do %>
+          <div class="form-group">
+            <%= text_field_tag :query, params[:query], autocomplete: :off, class: 'form-control', placeholder: "Search for player/team", id: "players_search" %>
+          </div>
+          <%= button_tag 'Search', name: nil, :class => "btn btn-sm" do %>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <% end %>
+        <% end %>
+
+        <!--Dropdown for more links-->
       	<li class="dropdown">
       		<a class="dropdown-toggle hidden-sm" data-toggle="dropdown" href="#">More
         	<span class="caret"></span></a>

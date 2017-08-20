@@ -21,7 +21,12 @@ class PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
-    @players = Player.all
+    search = params[:query].present? ? params[:query] : nil
+    @players = if search
+      Player.search(search)
+    else
+      Player.all
+    end
   end
 
   # GET /players/1
@@ -93,6 +98,12 @@ class PlayersController < ApplicationController
     end
   end
 
+  def autocomplete
+    test = params[:query]
+    t=Player.search(params[:query], fields: ['first_name', 'last_name', 'mtu_id', 'full_name'], match: :word_start, limit: 10)
+    render json: t.map{|p| "#{p.first_name} #{p.last_name} (#{p.mtu_id})"}
+  end
+
   private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -102,6 +113,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:mtu_id, :first_name, :last_name, :nickname, :email, :profile_pic, :remove_profile_pic, :major, :hometown, :position, :height_feet, :height_inches, :years_played, :description)
+      params.require(:player).permit(:mtu_id, :first_name, :last_name, :nickname, :email, :profile_pic, :remove_profile_pic, :major, :hometown, :position, :height_feet, :height_inches, :years_played, :description, :autocomplete)
     end
 end

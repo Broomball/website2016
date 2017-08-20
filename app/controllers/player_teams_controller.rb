@@ -27,7 +27,7 @@ class PlayerTeamsController < ApplicationController
   def create
     param=player_team_params
     mtuid=param[:player_id]
-    player=Player.where(mtu_id: mtuid).first
+    player=Player.where(mtu_id: mtuid).first 
     player_team_params[:player_id]=player.id
 
     @player_team = PlayerTeam.new(player_team_params)

@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :practice_rink_reservations
   root 'application#index'
 
-  resources :players
+  resources :players do
+    collection do
+      get :autocomplete
+    end
+  end
   resources :teams
   resources :news_articles
   resources :committee_pages
@@ -25,6 +29,9 @@ Rails.application.routes.draw do
 
   get '/residencyindex', to: 'players#residencyindex'
   post 'import', to: 'players#import'
+
+  get '/schedulegames', to: 'games#schedulegames'
+  post '/schedulegames', to: 'games#creategamesschedule'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

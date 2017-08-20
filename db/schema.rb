@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20170817183559) do
   end
 
   create_table "games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "rink_slot_id"
     t.string "home_team_id"
     t.string "away_team_id"
     t.string "home_goals"
     t.string "away_goals"
     t.string "overtime_loss"
-    t.date "day"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -68,13 +68,6 @@ ActiveRecord::Schema.define(version: 20170817183559) do
     t.integer "assists"
     t.text "description"
     t.boolean "committee"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "rink_slots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "rink"
-    t.datetime "slot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

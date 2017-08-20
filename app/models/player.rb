@@ -1,9 +1,11 @@
 class Player < ApplicationRecord
-  has_many :playergames
-  has_many :games, :through => :playergames
+  searchkick word_start: [:first_name, :last_name, :mtu_id]
 
-  has_many :playerteams
-  has_many :teams, :through => :playerteams
+  has_many :player_games
+  has_many :games, :through => :player_games
+
+  has_many :player_teams
+  has_many :teams, :through => :player_teams
 
   mount_uploader :profile_pic, ImageUploader
 
@@ -22,18 +24,23 @@ class Player < ApplicationRecord
     end
   end
 
+  def full_name
+      "#{first_name} #{last_name}"
+    end
+
+  def search_data
+    {
+      full_name: full_name,
+      first_name: first_name,
+      last_name: last_name,
+      mtu_id: mtu_id
+    }
+  end
+
+
   private
     def image_size_validation
       errors[:profile_pic] << "should be less than 500KB" if profile_pic.size > 0.5.megabytes
     end
 
-  #TODO: create lambdas
-  #lambda to search for player (returns array of player objects
-  #that have the substring of "query" in it)
-  #scope :search, lambda {|query|
-  #  where(["full_name LIKE ?", "%#{query}%"])
-  #}
-
-  #Used for listing players on teams TODO: make work with schema
-  #scope :teamsort, lambda {|team| where["team_id = ?", "%#{team}%"]}
 end

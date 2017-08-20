@@ -11,12 +11,12 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @games=Game.where(home_team: @team.id).or(Game.where(away_team: @team.id)).joins(:away_team).joins(:home_team).select('games.*, teams.name as away_team_name, home_teams_games.name as home_team_name')
   end
 
   # GET /teams/new
   def new
     @team = Team.new
-
   end
 
   # GET /teams/1/edit
