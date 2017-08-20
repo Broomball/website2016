@@ -61,6 +61,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def schedulegames
+    @games=Game.all
+  end
+
+  def creategamesschedule
+    begin
+      Game.creategames("test")
+      redirect_to '/schedulegames', notice: "Games Successfully Scheduled!"
+    rescue
+      redirect_to '/schedulegames', notice: "Unable to Schedule Games"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_game
