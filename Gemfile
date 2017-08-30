@@ -42,6 +42,8 @@ gem 'carrierwave', '~> 1.0'
 
 gem 'mini_magick', '~> 4.3'
 
+gem 'activerecord-import'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -62,4 +64,8 @@ group :development do
   gem 'spring'
 
   gem 'searchkick'
+
+  gem 'fullcalendar-rails'
+  gem 'momentjs-rails'
+
 end
