@@ -10,18 +10,16 @@ class Player < ApplicationRecord
   mount_uploader :profile_pic, ImageUploader
 
   require 'csv'
+  require 'active_record'
+  require 'activerecord-import'
 
-  def self.import(file)
+  def self.residencyimport(file)
+    players = []
     CSV.foreach(file.path, headers: true) do |row|
       player_hash = row.to_hash
-      player = Player.where(mtu_id: player_hash["mtu_id"])
-
-      if player.count == 1
-        player.first.update_attributes(first_name: player_hash["first_name"], last_name: player_hash["last_name"], mtu_id: player_hash["mtu_id"])
-      else
-        Player.create(first_name: player_hash["first_name"], last_name: player_hash["last_name"], mtu_id: player_hash["mtu_id"])
-      end
+      players << Player.new(first_name: player_hash["first_name"], last_name: player_hash["last_name"], mtu_id: player_hash["mtu_id"])
     end
+    Player.import players
   end
 
   def full_name

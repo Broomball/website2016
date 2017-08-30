@@ -3,8 +3,8 @@ class NewsArticlesController < ApplicationController
   # GET /news_articles/1
   # GET /news_articles/1.json
   def show
-    #TODO: Make lambda in model to make this quicker 
-    @news_articles = NewsArticle.newslist
+    #TODO: Make lambda in model to make this quicker
+    #@news_articles = NewsArticle.all
   end
 
   # GET /news_articles/new
@@ -30,7 +30,7 @@ class NewsArticlesController < ApplicationController
         format.json { render json: @news_article.errors, status: :unprocessable_entity }
       end
     end
-    #TODO: Create photo folder for article in assets and set 
+    #TODO: Create photo folder for article in assets and set
     #@news_article's picture_path attribute
   end
 

@@ -24,15 +24,15 @@ class PlayerGamesController < ApplicationController
   # POST /player_games
   # POST /player_games.json
   def create
-    @player_game = PlayerGame.new(player_game_params)
+    @player_games = PlayerGame.update(permit_player_game_params["away_team_player_games"].keys, permit_player_game_params["away_team_player_games"].values)
 
     respond_to do |format|
-      if @player_game.save
-        format.html { redirect_to @player_game, notice: 'Player game was successfully created.' }
-        format.json { render :show, status: :created, location: @player_game }
+      if @player_games
+        format.html { redirect_to game_path(@player_games.first.game_id), notice: 'Player stats were successfully created.' }
+        format.json { render :show, status: :created, location: @game }
       else
-        format.html { render :new }
-        format.json { render json: @player_game.errors, status: :unprocessable_entity }
+        format.html { redirect_to games_path, notice: 'Game was unable to be created.' }
+        format.json { render json: @player_games.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -70,5 +70,9 @@ class PlayerGamesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_game_params
       params.fetch(:player_game, {})
+    end
+
+    def permit_player_game_params
+      params.permit(away_team_player_games:[:goals, :assists, :saves])
     end
 end

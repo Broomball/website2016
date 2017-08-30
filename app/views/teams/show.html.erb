@@ -30,10 +30,7 @@
 	  		</thead>
 	  		<tbody>
 
-
-					<% playerteam=PlayerTeam.joins(:player).select("player_teams.id, player_id, first_name, last_name, nickname, position, goals, assists").where(team_id: @team.id) %>
-
-					<% playerteam.each do |pt| %>
+					<% @playerstats.each do |pt| %>
 					<tr>
 
 						<td><%= link_to pt.first_name + " " + pt.last_name, player_path(pt.player_id) %></td>
@@ -41,9 +38,9 @@
 						<td><%= pt.position %></td>
 						<td><%= pt.goals || 0 %></td>
 						<td><%= pt.assists || 0 %></td>
+						<td><%= pt.goals + pt.assists || 0 %></td>
 						<td>TODO</td>
-						<td>16:00 TODO</td>
-						<td><%= link_to 'Remove', player_team_path(pt.id),  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+						<td><%= link_to 'Remove', player_team_path(pt.player_team_id),  method: :delete, data: { confirm: 'Are you sure?' } %></td>
 					</tr>
 					<% end %>
 
@@ -58,7 +55,7 @@
 
 	</div>
 	<div class = "row">
-		<h2 class="table-title"><span>2016 Team Schedule</span></h2>
+		<h2 class="table-title"><span><%= @team.season_id %> Team Schedule</span></h2>
 
 		<table class="table table-hover active">
 			<thead>
@@ -77,12 +74,12 @@
 				<tr>
 					<td><%= g.start_time.to_date %></td>
 					<td><%= g.start_time.strftime("%I:%M%p") %></td>
-					<td>Rink</td>
+					<td><%= g.rink %></td>
 					<td><%= link_to g.home_team_name, team_path(g.home_team_id) %></td>
-					<td><%= p (g.home_goals + " - " + g.away_goals) unless g.home_goals.nil? or g.away_goals.nil? %></td>
+					<td><%= (g.home_goals + " - " + g.away_goals) unless g.home_goals.nil? or g.away_goals.nil? %></td>
 					<td><%= link_to g.away_team_name, team_path(g.away_team_id) %></td>
 					<!--TODO: Remove column if not captain-->
-					<td><%= link_to 'Enter Stats', game_path(g.id) %></td>
+					<td><%= link_to 'Enter Stats', player_game_stats_path(g.id) %></td>
 				</tr>
 				<%end%>
 			</tbody>

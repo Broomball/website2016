@@ -12,6 +12,19 @@
   <% end %>
 
   <div class="actions">
+    <%= form.label :home_goals %>
+    <%= form.number_field :home_goals %><br>
+
+    <%= form.label :away_goals %>
+    <%= form.number_field :away_goals %><br>
+
+    <%= form.label :overtime_loss %>
+    <%= form.check_box :overtime_loss %><br>
+
+
+
+
+
     <%= form.submit %>
   </div>
 <% end %>

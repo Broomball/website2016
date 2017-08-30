@@ -1,0 +1,18 @@
+<h1>Enter Player Stats</h1>
+
+<%= form_tag player_games_path do %>
+
+
+
+    <% @away_team_player_games.each_with_index do |away_team_player_game, i| %>
+      <% # form.label @home_team_players[i].first_name + " " + @home_team_players[i].last_name  %>
+      <%= fields_for "away_team_player_games[]", away_team_player_game do |f| %> <%= f.label :goals %> <%= f.number_field :goals %> <%= f.label :assists %> <%= f.number_field :assists %> <%= f.label :saves %> <%= f.number_field :saves %> <% end %>
+    <% end %>
+    <div class="actions">
+      <%= submit_tag "Submit" %>
+    </div>
+
+<% end %>
+
+<%= link_to 'Show', @game %> |
+<%= link_to 'Back', games_path %>

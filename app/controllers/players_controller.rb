@@ -1,22 +1,8 @@
 class PlayersController < ApplicationController
-# <<<<<<< HEAD
-  # #List players w/stats
-  # def listPlayers
-  # end
-#
-  # #Profile Page for current user
-  # def profile
-  # end
-#
-  # #Goes to schedule of the current user
-  # def schedule
-  # end
-#
-  # #Lists the stats for the current user
-  # def stats
-  # end
-# =======
+
   before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:edit, :update]
+  before_action :authenticate_admin, only: [:destroy, :create, :import, :residencyindex]
 
   # GET /players
   # GET /players.json
@@ -32,7 +18,11 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
-    @playerteams = PlayerTeam.joins(:team).select("teams.id, name, season_id").where(player_id: @player.id)
+    @playerstats=Player.joins(:teams, :player_games, :player_teams).select('players.first_name, players.last_name, teams.id as team_id, teams.name, teams.season_id, sum(player_games.goals) as goals, sum(player_games.assists) as assists, sum(player_games.saves) as saves').where(id: @player.id).group('teams.id')
+    @totalgoals=0
+    @totalassists=0
+    @totalsaves=0
+    @hasaccess=has_access
   end
 
   # GET /players/new
@@ -42,7 +32,6 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-
   end
 
   # POST /players
@@ -91,7 +80,7 @@ class PlayersController < ApplicationController
 
   def import
     begin
-      Player.import(params[:file])
+      Player.residencyimport(params[:file])
       redirect_to '/residencyindex', notice: "Residency Data Imported!"
     rescue
       redirect_to '/residencyindex', notice: "Invalid CSV file format"
@@ -115,4 +104,37 @@ class PlayersController < ApplicationController
     def player_params
       params.require(:player).permit(:mtu_id, :first_name, :last_name, :nickname, :email, :profile_pic, :remove_profile_pic, :major, :hometown, :position, :height_feet, :height_inches, :years_played, :description, :autocomplete)
     end
+
+    # Check if user is logged in and has access to resource
+    def authenticate_user
+      if !current_user
+        redirect_to "/auth/google_oauth2", :id => "sign_in" and return
+      elsif current_user.mtu_id != @player.mtu_id && !Player.exists?(mtu_id: current_user.mtu_id, committee: true)
+        redirect_to player_path(@player), notice: "The signed in user account cannot access this resource" and return
+      end
+    end
+
+    # Check if user is logged in as admin
+    def authenticate_admin
+      if !current_user
+        redirect_to "/auth/google_oauth2", :id => "sign_in" and return
+      elsif !Player.exists?(mtu_id: current_user.mtu_id, committee: true)
+        if @player
+          redirect_to player_path(@player), notice: "The signed in user account cannot access this resource" and return
+        else
+          redirect_to players_path, notice: "The signed in user account cannot access this resource" and return
+        end
+      end
+    end
+
+    # Check if the user has permissions to do further actions (edit/update player)
+    def has_access
+      if !current_user
+        return false
+      elsif current_user.mtu_id != @player.mtu_id && !Player.exists?(mtu_id: current_user.mtu_id, committee: true)
+        return false
+      end
+      return true
+    end
+
 end

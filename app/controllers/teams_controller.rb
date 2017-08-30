@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     @games=Game.where(home_team: @team.id).or(Game.where(away_team: @team.id)).joins(:away_team).joins(:home_team).select('games.*, teams.name as away_team_name, home_teams_games.name as home_team_name')
+    @playerstats=Player.joins(:teams, :player_games).select('players.first_name, players.last_name, players.id as player_id, players.nickname, players.position, teams.id as team_id, teams.name, player_teams.id as player_team_id, sum(player_games.goals) as goals, sum(player_games.assists) as assists').where('teams.id = ?', @team.id).group('player_teams.id')
   end
 
   # GET /teams/new

@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to @game.home_team.name, team_path(@game.home_team) %>
+<%= link_to @game.away_team.name, team_path(@game.away_team) %>
+
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

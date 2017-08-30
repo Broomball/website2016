@@ -61,27 +61,13 @@ class Game < ApplicationRecord
   schedule.generate
   schedule.gamedays.each do |gd|
     gd.games.each do |g|
-      Game.create(home_team_id: Team.where(name: g.team_a.to_s).first.id, away_team_id: Team.where(name: g.team_b.to_s).first.id, start_time: g.game_time)
+      dt = g.game_time
+      dtStart = DateTime.new(gd.date.year, gd.date.month, gd.date.day, g.game_time.hour, g.game_time.min, g.game_time.sec, g.game_time.zone)
+      Game.create(home_team_id: Team.where(name: g.team_a.to_s).first.id, away_team_id: Team.where(name: g.team_b.to_s).first.id, start_time: dtStart, end_time: dtStart + 45.minutes, rink: g.ps)
     end
   end
 
-    #Get each conference
-    #conferences = Team.distinct.pluck(:conference)
 
-    #For each conference and team in conference schedule the games
-    #conferences.each do |c|
-    #  teamsInConference = Team.where(conference: c).order(:id)
-    #  teamsInConference.each.with_index do |teamInC, teamNum|
-    #    teamsInConference.drop(teamNum + 1).each.with_index do |opponentTeams, index|
-    #      if gamesPerTeam/2 < index
-    #        Game.new(home_team_id: teamInC.id, away_team_id: opponentTeams.id, )
-    #      else
-    #        Game.new(home_team_id: opponentTeams.id, away_team_id: )
-    #      end
-
-
-    #    end
-    #  end
-    end
+  end
 
 end
