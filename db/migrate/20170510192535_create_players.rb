@@ -13,8 +13,6 @@ class CreatePlayers < ActiveRecord::Migration[5.1]
       t.integer :height_inches
       t.integer :age
       t.integer :years_played
-      t.integer :goals
-      t.integer :assists
       t.text :description
       t.boolean :committee
 

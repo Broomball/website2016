@@ -37,3 +37,6 @@ teams.each do |c|
     Team.create(:name => t)
   end
 end
+
+Player.create(:first_name => 'Bob', :last_name => 'Burger', :mtu_id => 'bburger')
+Player.create(:first_name => 'Test', :last_name => 'User', :mtu_id => 'ttuser')

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817183559) do
+ActiveRecord::Schema.define(version: 20170829184039) do
 
   create_table "carousel_pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170817183559) do
     t.string "overtime_loss"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.string "rink"
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,11 +37,13 @@ ActiveRecord::Schema.define(version: 20170817183559) do
   create_table "player_games", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "goals"
     t.integer "assists"
-    t.integer "save"
+    t.integer "saves"
     t.integer "goals_allowed"
     t.integer "penalty_minutes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "player_id"
+    t.integer "game_id"
   end
 
   create_table "player_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -95,6 +98,7 @@ ActiveRecord::Schema.define(version: 20170817183559) do
     t.string "uid"
     t.string "name"
     t.string "oauth_token"
+    t.string "mtu_id"
     t.datetime "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
