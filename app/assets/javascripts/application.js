@@ -16,3 +16,28 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require typeahead
+//= require moment
+//= require fullcalendar
+
+$(document).on('turbolinks:load', function(){
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+        // put your options and callbacks here
+        header:
+				{
+					left: 'prev,next, today',
+					center: 'title',
+					right: 'month,agendaWeek,agendaDay,listYear'
+				},
+        defaultView: "listYear",
+        minTime: "8:00:00",
+        selectable: true,
+        editable: true,
+        eventLimit: true,
+        events: window.location.href
+    })
+
+
+});
